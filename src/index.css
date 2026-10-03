@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Syne', sans-serif;
+    --font-editorial: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    /* Light Luxury Color Tokens */
+    --bg-main: #fafafa;
+    --bg-card: #ffffff;
+    --bg-tint: #f7f5fc;
+    --text-primary: #0a0a0e;
+    --text-secondary: #4b4b5c;
+    --text-muted: #8e8e9f;
+    --purple-primary: #7c3aed;
+    --purple-dark: #6d28d9;
+    --purple-light: #8b5cf6;
+    --purple-soft: #a78bfa;
+    --purple-tint: rgba(124, 58, 237, 0.08);
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    letter-spacing: -0.015em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.035em;
+  }
+}
+
+/* Custom Scrollbar (Light Luxury) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e0ed;
+  border-radius: 9999px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* 3D Transform & Spatial Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Light Glassmorphism Styles */
+.light-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.03);
+}
+
+.light-glass-purple {
+  background: rgba(247, 245, 252, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.12);
+}
+
+.card-3d-shadow {
+  box-shadow: 
+    0 30px 60px -12px rgba(50, 30, 90, 0.08),
+    0 18px 36px -18px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(124, 58, 237, 0.06);
+}
+
+/* Chrome / Glass 3D elements */
+.chrome-ring {
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(167, 139, 250, 0.4), rgba(255, 255, 255, 0.8), rgba(124, 58, 237, 0.3)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glass-sphere {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(167, 139, 250, 0.3) 50%, rgba(124, 58, 237, 0.15) 100%);
+  box-shadow: inset -8px -8px 20px rgba(109, 40, 217, 0.2), 0 15px 35px rgba(124, 58, 237, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+/* Gradient text utilities */
+.text-purple-gradient {
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-dark-gradient {
+  background: linear-gradient(135deg, #0a0a0e 0%, #2d2d3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Typography styles */
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+/* 3D Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
